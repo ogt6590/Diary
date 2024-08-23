@@ -1,0 +1,50 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.1'
+}
+
+subprojects {
+	group 'com.side'
+	version '0.0.1-SNAPSHOT'
+	sourceCompatibility = 17
+
+	apply plugin: 'java'
+	apply plugin: 'org.springframework.boot'
+	// Automatically get dependencies from the boot version in use
+	apply plugin: 'io.spring.dependency-management'
+
+	repositories {
+		mavenCentral()
+	}
+
+	// subprojects common dependencies
+	dependencies {
+		implementation 'org.springframework.boot:spring-boot-starter'
+		testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	}
+
+	test {
+		useJUnitPlatform()
+	}
+}
+
+project(":diary-api") {
+	dependencies {
+		implementation project(":diary-dao")
+		implementation project(":diary-service")
+	}
+}
+
+project(':diary-dao') { // No need to package diary-dao to bootJar
+	bootJar { enabled = false }
+	jar { enabled = true }
+}
+
+project(':diary-service') { // No need to package diary-service to bootJar
+	bootJar { enabled = false }
+	jar { enabled = true }
+}
+
+bootJar {
+	enabled = false
+}
