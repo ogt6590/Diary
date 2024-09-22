@@ -1,13 +1,13 @@
-package com.side.diaryservice;
+package com.side.diarydomin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DiaryServiceApplication {
+public class DiaryDomainApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DiaryServiceApplication.class, args);
+        SpringApplication.run(DiaryDomainApplication.class, args);
     }
 
 }

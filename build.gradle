@@ -30,17 +30,11 @@ subprojects {
 
 project(":diary-api") {
 	dependencies {
-		implementation project(":diary-dao")
-		implementation project(":diary-service")
+		implementation project(":diary-domain")
 	}
 }
 
-project(':diary-dao') { // No need to package diary-dao to bootJar
-	bootJar { enabled = false }
-	jar { enabled = true }
-}
-
-project(':diary-service') { // No need to package diary-service to bootJar
+project(':diary-domain') { // No need to package diary-domain to bootJar
 	bootJar { enabled = false }
 	jar { enabled = true }
 }

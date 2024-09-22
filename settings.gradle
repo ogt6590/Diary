@@ -1,3 +1,3 @@
 rootProject.name = 'diary-module'
 
-include 'diary-api', 'diary-dao', 'diary-service', 'diary-web'
+include 'diary-api', 'diary-domain', 'diary-web'
